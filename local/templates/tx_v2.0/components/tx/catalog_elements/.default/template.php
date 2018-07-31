@@ -1,0 +1,130 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?//echo '<pre>';print_r($arResult); echo '</pre>';?>
+<?if(!$arParams['FILTER'] && !$arParams['SEARCH']):?>
+	<div class='b-sort'>	
+		<?if($arParams['SEF_FOLDER']):?>
+			<?if($arParams['CUR_PAGE']==$arParams['CUR_PAGE_PARAM']):?>
+				<a class="b-sort__el b-sort__el_current" href='<?=$arParams['CUR_PAGE']?>'><h1>Новые<?=$arResult['SECTION']['NAME']?' "'.$arResult['SECTION']['NAME'].'"':''?></h1></a>
+			<?else:?>
+				<a class="b-sort__el" href='<?=$arParams['CUR_PAGE']?>'>Новые<?=$arResult['SECTION']['NAME']?' "'.$arResult['SECTION']['NAME'].'"':''?></a>
+			<?endif?>
+		<?endif?>	
+		<a class="b-sort__el <?=$_REQUEST['sort']=='popular'?'b-sort__el_current':''?>"  href='<?=$arParams['CUR_PAGE']?>?sort=popular'>Популярные<?=$arResult['SECTION']['NAME']?' "'.$arResult['SECTION']['NAME'].'"':''?></a>
+		<a class="b-sort__el <?=$_REQUEST['sort']=='favorites'?'b-sort__el_current':''?>"  href='<?=$arParams['CUR_PAGE']?>?sort=favorites'>Избранные<?=$arResult['SECTION']['NAME']?' "'.$arResult['SECTION']['NAME'].'"':''?></a>				
+		<div class='b-sort__cler'></div>	
+	</div>
+<?endif?>
+
+<?if($arParams['FILTER'] == CatalogElements::FILTER_FAVORITES ||
+	$arParams['SEARCH']):?>
+	<div class='b-title'>
+		<?if($arParams['FILTER'] == CatalogElements::FILTER_FAVORITES):?>
+			<div class='b-title__el'>
+				Мои избранные
+			</div>
+		<?endif?>
+		
+		<?if($arParams['SEARCH']):?>
+			<div class='b-title__el'>
+				Поиск: "<?=$arParams['SEARCH']?>"
+			</div>
+		<?endif?>
+	</div>
+<?endif?>
+<?/* СООБЩЕНИЯ
+   */?>
+<?if(!$arParams['AUTHORIZED'] && $arParams['FILTER'] == CatalogElements::FILTER_FAVORITES ||
+	$arParams['AUTHORIZED'] && !$arResult['ELEMENTS'] && $arParams['FILTER'] == CatalogElements::FILTER_FAVORITES):?>
+	<div class='b-message'>
+		<?if(!$arParams['AUTHORIZED'] && $arParams['FILTER'] == CatalogElements::FILTER_FAVORITES):?>
+			<div class='b-message_el'>
+				Раздел избранные доступен после входа.
+			</div>
+		<?endif?>
+		<?if($arParams['AUTHORIZED'] && !$arResult['ELEMENTS'] && $arParams['FILTER'] == CatalogElements::FILTER_FAVORITES):?>
+			<div class='b-message_el'>
+				Вы не добавили ничего в избранные.
+			</div>
+		<?endif?>
+	</div>
+<?endif?>
+<?if($arResult['ELEMENTS']):?>
+	<div class='b-elements'>
+		<?foreach($arResult['ELEMENTS'] as $element):?>		
+			<div class='b-elements__el'>			
+				<div class='b-element'>
+					<a class='b-element__name' href='<?=$element['DETAIL_PAGE_URL']?>'>
+						<?if($element['PROPERTY']['NAME_RU']['VALUE']):?>
+							<?=$element['PROPERTY']['NAME_RU']['VALUE']?>
+						<?else:?>
+							<?=$element['NAME']?>
+						<?endif?>
+					</a>
+					<?if($element['PREVIEW_PICTURE']):?>
+						<a class='b-element__picture' href='<?=$element['DETAIL_PAGE_URL']?>'>
+							<div class='b-element-picture'>
+								<?if($element['PROPERTY']['NAME_RU']['VALUE']):?>
+									<img class='b-element-picture__el' alt='<?=$element['PROPERTY']['NAME_RU']['VALUE']?> (<?=$element['NAME']?>)' src='<?=$element['PREVIEW_PICTURE']['src']?>' width='<?=$element['PREVIEW_PICTURE']['width']?>' height='<?=$element['PREVIEW_PICTURE']['height']?>'>
+								<?else:?>							
+									<img class='b-element-picture__el' alt='<?=$element['NAME']?>' src='<?=$element['PREVIEW_PICTURE']['src']?>' width='<?=$element['PREVIEW_PICTURE']['width']?>' height='<?=$element['PREVIEW_PICTURE']['height']?>'>
+								<?endif?>
+							</div>
+						</a>
+					<?endif?>
+					<?if($element['PROPERTY']['SECTIONS'][0]['VALUE']):?>
+						<div class='b-element__sections'>
+							<div class='b-sections'>						
+								<?foreach($element['PROPERTY']['SECTIONS'] as $section):?>
+									<a class='b-sections__sec' href='<?=$section['VALUE']['SECTION_PAGE_URL']?>'>
+										#<?=$section['VALUE']['NAME']?>
+									</a>
+								<?endforeach?>
+								<div class='b-sections__clear'></div>
+							</div>
+						</div>
+					<?endif?>
+					
+					<?if($element['PROPERTY']['CONTROL'][0]['VALUE']):?>				
+						<div class='b-element__control'>
+							<div class='b-control'>
+								<?foreach($element['PROPERTY']['CONTROL'] as $control):?>
+									<div class='b-control__el <?=$control['VALUE']['UF_CSS_CLASS']?>'>
+										<?if(!$control['VALUE']['UF_CSS_CLASS']):?>
+											<?=$control['VALUE']['UF_NAME']?>
+										<?endif?>
+									</div>
+								<?endforeach?>
+								<div class='b-control__clear'></div>
+							</div>
+						</div>
+					<?endif?>
+					<?if($element['VIEWS'] || $element['FAVORITES']):?>
+					<div class='b-element__info'>
+						<div class='b-info'>
+							<?if($element['VIEWS']):?>
+								<div class='b-info__views'>
+									<span class='img-views'></span>
+									<?=$element['VIEWS']?>
+								</div>	
+							<?endif?>
+							<?if($element['FAVORITES']):?>	
+								<div class='b-info__favorites'>
+									<span class='img-favorites-dark'></span>
+									<?=$element['FAVORITES']?>
+								</div>					
+							<?endif?>
+							<div class='b-info__clear'></div>
+						</div>					
+					</div>
+					<?endif?>
+					<?if($arParams['FILTER'] == CatalogElements::FILTER_FAVORITES):?>
+						<div class='b-element__add-favorite'>
+							<a href='/ajax/add_favorite/?id=<?=$element['ID']?>' class='ajax ajax_replace-content'>Из избранного</a>
+						</div>
+					<?endif?>
+				</div>
+			</div>
+		<?endforeach?>
+		<?=$arResult["NAV_STRING"]?>
+	</div>
+<?endif?>

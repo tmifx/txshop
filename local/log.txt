@@ -1,0 +1,445 @@
+Host: legendsofflash.com:80
+Date: 2016-12-03 19:13:29
+Module: 
+NULL
+    showLogo < call_user_func_array < CAllMain::EndBufferContent < CAllMain::EndBufferContentMan < require
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3240
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3192
+	/home/bitrix/www/bitrix/modules/main/include/epilog_after.php:36
+	/home/bitrix/www/bitrix/modules/main/include/epilog.php:3
+----------
+Host: legendsofflash.com:80
+Date: 2016-12-03 19:13:38
+Module: 
+true
+    showLogo < call_user_func_array < CAllMain::EndBufferContent < CAllMain::EndBufferContentMan < require
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3240
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3192
+	/home/bitrix/www/bitrix/modules/main/include/epilog_after.php:36
+	/home/bitrix/www/bitrix/modules/main/include/epilog.php:3
+----------
+Host: legendsofflash.com:80
+Date: 2016-12-03 19:14:32
+Module: 
+legendsofflash.com:80
+    showLogo < call_user_func_array < CAllMain::EndBufferContent < CAllMain::EndBufferContentMan < require
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3240
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:3192
+	/home/bitrix/www/bitrix/modules/main/include/epilog_after.php:36
+	/home/bitrix/www/bitrix/modules/main/include/epilog.php:3
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-23 17:58:38
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('У', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						INNER JOIN b_search_content sc ON sc.ID = sct.SEARCH_CONTENT_ID
+						INNER JOIN b_search_content_site scsite ON sc.ID = scsite.SEARCH_CONTENT_ID
+					
+				WHERE
+					((
+					EXISTS (
+						SELECT 1
+						FROM b_search_content_right scg
+						WHERE sc.ID = scg.SEARCH_CONTENT_ID
+						AND scg.GROUP_CODE = 'G2'
+					)))
+					AND (( (sct.searchable_content LIKE '%У%') ))
+					
+				AND (
+					(
+scsite.SITE_ID = 's1'
+AND sc.MODULE_ID = 'iblock')
+				)
+				 ORDER BY TITLE_RANK DESC, RANK DESC, CUSTOM_RANK DESC
+LIMIT 500 [Got error 28 from storage engine]
+    CDatabaseMysql::Query < CAllSearch::Search < CatalogElements::get_search_elements_id < CatalogElements::getElements < include
+	/home/bitrix/www/bitrix/modules/search/classes/general/search.php:242
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:231
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:145
+	/home/bitrix/www/local/components/tx/catalog_elements/component.php:88
+	/home/bitrix/www/bitrix/modules/main/classes/general/component.php:535
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-23 17:58:40
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('УДАРНЫ', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						INNER JOIN b_search_content sc ON sc.ID = sct.SEARCH_CONTENT_ID
+						INNER JOIN b_search_content_site scsite ON sc.ID = scsite.SEARCH_CONTENT_ID
+					
+				WHERE
+					((
+					EXISTS (
+						SELECT 1
+						FROM b_search_content_right scg
+						WHERE sc.ID = scg.SEARCH_CONTENT_ID
+						AND scg.GROUP_CODE = 'G2'
+					)))
+					AND (( (sct.searchable_content LIKE '%УДАР�Host: legendsofflash.com:80
+Date: 2017-02-23 22:24:29
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('Н', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						INNER JOIN b_search_content sc ON sc.ID = sct.SEARCH_CONTENT_ID
+						INNER JOIN b_search_content_site scsite ON sc.ID = scsite.SEARCH_CONTENT_ID
+					
+				WHERE
+					((
+					EXISTS (
+						SELECT 1
+						FROM b_search_content_right scg
+						WHERE sc.ID = scg.SEARCH_CONTENT_ID
+						AND scg.GROUP_CODE = 'G2'
+					)))
+					AND (( (sct.searchable_content LIKE '%Н%') ))
+					
+				AND (
+					(
+scsite.SITE_ID = 's1'
+AND sc.MODULE_ID = 'iblock')
+				)
+				 ORDER BY TITLE_RANK DESC, RANK DESC, CUSTOM_RANK DESC
+LIMIT 500 [Incorrect key file for table '/tmp/#sql_945_0.MYI'; try to repair it]
+    CDatabaseMysql::Query < CAllSearch::Search < CatalogElements::get_search_elements_id < CatalogElements::getElements < include
+	/home/bitrix/www/bitrix/modules/search/classes/general/search.php:242
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:231
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:145
+	/home/bitrix/www/local/components/tx/catalog_elements/component.php:88
+	/home/bitrix/www/bitrix/modules/main/classes/general/component.php:535
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-23 22:53:21
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('GF', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						INNER JOIN b_search_content sc ON sc.ID = sct.SEARCH_CONTENT_ID
+						INNER JOIN b_search_content_site scsite ON sc.ID = scsite.SEARCH_CONTENT_ID
+					
+				WHERE
+					((
+					EXISTS (
+						SELECT 1
+						FROM b_search_content_right scg
+						WHERE sc.ID = scg.SEARCH_CONTENT_ID
+						AND scg.GROUP_CODE = 'G2'
+					)))
+					AND (( (sct.searchable_content LIKE '%GF%') ))
+					
+				AND (
+					(
+scsite.SITE_ID = 's1'
+AND sc.MODULE_ID = 'iblock')
+				)
+				 ORDER BY TITLE_RANK DESC, RANK DESC, CUSTOM_RANK DESC
+LIMIT 500 [Got error 28 from storage engine]
+    CDatabaseMysql::Query < CAllSearch::Search < CatalogElements::get_search_elements_id < CatalogElements::getElements < include
+	/home/bitrix/www/bitrix/modules/search/classes/general/search.php:242
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:231
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:145
+	/home/bitrix/www/local/components/tx/catalog_elements/component.php:88
+	/home/bitrix/www/bitrix/modules/main/classes/general/component.php:535
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-23 22:53:22
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('GFG', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						Host: legendsofflash.com:80
+Date: 2017-02-24 02:49:05
+Module: main
+File: /home/bitrix/www/bitrix/modules/search/classes/general/search.php<br>Line: 242 MySql Query Error: SELECT DISTINCT
+sc.ID
+,sc.MODULE_ID
+,sc.ITEM_ID
+,sc.TITLE
+,sc.TAGS
+,sc.BODY
+,sc.PARAM1
+,sc.PARAM2
+,sc.UPD
+,sc.DATE_FROM
+,sc.DATE_TO
+,sc.URL
+,sc.CUSTOM_RANK
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y %H:%i:%s') as FULL_DATE_CHANGE
+,DATE_FORMAT(sc.DATE_CHANGE, '%d.%m.%Y') as DATE_CHANGE
+,sct.SEARCHABLE_CONTENT
+,sc.USER_ID
+,if(locate('E', upper(sc.TITLE)) > 0, 1, 0) as TITLE_RANK
+,scsite.URL as SITE_URL
+,scsite.SITE_ID
+,1 as RANK
+
+				FROM
+					
+						b_search_content_text sct
+						INNER JOIN b_search_content sc ON sc.ID = sct.SEARCH_CONTENT_ID
+						INNER JOIN b_search_content_site scsite ON sc.ID = scsite.SEARCH_CONTENT_ID
+					
+				WHERE
+					((
+					EXISTS (
+						SELECT 1
+						FROM b_search_content_right scg
+						WHERE sc.ID = scg.SEARCH_CONTENT_ID
+						AND scg.GROUP_CODE = 'G2'
+					)))
+					AND (( (sct.searchable_content LIKE '%E%') ))
+					
+				AND (
+					(
+scsite.SITE_ID = 's1'
+AND sc.MODULE_ID = 'iblock')
+				)
+				 ORDER BY TITLE_RANK DESC, RANK DESC, CUSTOM_RANK DESC
+LIMIT 500 [Incorrect key file for table '/tmp/#sql_945_0.MYI'; try to repair it]
+    CDatabaseMysql::Query < CAllSearch::Search < CatalogElements::get_search_elements_id < CatalogElements::getElements < include
+	/home/bitrix/www/bitrix/modules/search/classes/general/search.php:242
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:231
+	/home/bitrix/www/local/components/tx/catalog_elements/class.php:145
+	/home/bitrix/www/local/components/tx/catalog_elements/component.php:88
+	/home/bitrix/www/bitrix/modules/main/classes/general/component.php:535
+----------
+Host: 
+Date: 2017-02-24 03:19:08
+Module: main
+405 MySql Query Error: 
+				INSERT INTO b_rating_prepare (ID)
+				SELECT DISTINCT U.ID
+				FROM 
+					b_user U
+				WHERE 
+				U.ACTIVE = 'Y'
+				AND U.LAST_LOGIN > DATE_SUB(NOW(), INTERVAL 90 DAY)
+			 [MySQL server has gone away]
+    CDatabaseMysql::Query < CRatings::GetCommunityInfo < CRatings::BuildRating < CAllRatings::Calculate < eval
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/ratings.php:405
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/ratings.php:119
+	/home/bitrix/www/bitrix/modules/main/classes/general/ratings.php:370
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php(161) : eval()'d code:1
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:161
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-24 03:19:53
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/user.php<br> LINE: 2501 MySql Query Error: SELECT G.SECURITY_POLICY FROM b_group G WHERE G.ID=2 []
+    CDatabaseMysql::Query < CAllUser::GetGroupPolicy < CAllUser::GetSecurityPolicy < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/user.php:2501
+	/home/bitrix/www/bitrix/modules/main/classes/general/user.php:52
+	/home/bitrix/www/bitrix/modules/main/include.php:1
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2017-02-24 03:20:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				
+			LIMIT 1
+		 []
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAskaronAgents::CheckAgents < CAskaronAgents::OnPageStartHandler < call_user_func_array
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:37
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:17
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:490
+----------
+Host: legendsofflash.com:80
+Date: 2017-02-24 03:20:03
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/user.php<br> LINE: 2501 MySql Query Error: SELECT G.SECURITY_POLICY FROM b_group G WHERE G.ID=2 []
+    CDatabaseMysql::Query < CAllUser::GetGroupPolicy < CAllUser::GetSecurityPolicyHost: 
+Date: 2017-03-17 20:45:02
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				
+			LIMIT 1
+		 []
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAskaronAgents::CheckAgents < CAskaronAgents::OnPageStartHandler < call_user_func_array
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:37
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:17
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:490
+----------
+Host: legendsofflash.com:80
+Date: 2017-03-17 20:45:03
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/main.php<br> LINE: 4788 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as LANGUAGE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_language L, b_culture C WHERE C.ID = L.CULTURE_ID  AND (L.LID='')  AND (L.ACTIVE='')  ORDER BY L.SORT  []
+    CDatabaseMysql::Query < CAllLanguage::GetList < CMain::GetLang < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:4788
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:47
+	/home/bitrix/www/bitrix/modules/main/include.php:1
+	/home/bitrix/www/bitrix/modules/main/include/prolog_admin_before.php:18
+	/home/bitrix/www/bitrix/modules/main/public/get_start_menu.php:4
+----------
+Host: 
+Date: 2017-03-18 09:27:02
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				
+			LIMIT 1
+		 []
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAskaronAgents::CheckAgents < CAskaronAgents::OnPageStartHandler < call_user_func_array
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:37
+	/home/bitrix/www/bitrix/modules/askaron.agents/include.php:17
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:490
+----------
+Host: 
+Date: 2018-07-31 21:29:03
+Module: main
+<br>Class: CRatings<br>File: /home/bitrix/ext_www/txshop.tx/bitrix/modules/main/classes/mysql/ratings.php<br>Function: Calculate<br>Line: 341 MySql Query Error: SELECT
+				RC.*,
+				DATE_FORMAT(RC.LAST_MODIFIED, '%d.%m.%Y %H:%i:%s')	LAST_MODIFIED,
+				DATE_FORMAT(RC.LAST_CALCULATED, '%d.%m.%Y %H:%i:%s') LAST_CALCULATED,
+				DATE_FORMAT(RC.NEXT_CALCULATION, '%d.%m.%Y %H:%i:%s') NEXT_CALCULATION
+			FROM
+				b_rating_component RC
+			WHERE
+				RATING_ID = 3
+				and ACTIVE = 'Y' AND NEXT_CALCULATION <= now() [Table 'dbtxshop.b_rating_component' doesn't exist]
+    CDatabaseMysql::Query < CAllRatings::Calculate < eval < CAgent::ExecuteAgents < CAgent::CheckAgents
+	/home/bitrix/ext_www/txshop.tx/bitrix/modules/main/classes/general/ratings.php:341
+	/home/bitrix/ext_www/txshop.tx/bitrix/modules/main/classes/mysql/agent.php(161) : eval()'d code:1
+	/home/bitrix/ext_www/txshop.tx/bitrix/modules/main/classes/mysql/agent.php:161
+	/home/bitrix/ext_www/txshop.tx/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/ext_www/txshop.tx/bitrix/modules/main/include.php:1
+----------
